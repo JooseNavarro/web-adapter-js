@@ -1,0 +1,41 @@
+{
+  "name": "web-adapter-js",
+  "version": "0.1.0",
+  "description": "Web Adapter es un paquete que te permite tener una comunicación dinámica con tus Web Componets externos, ademas podrás cargar tus estilos de forma dinámica.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "rm -rf dist/ && tsc && cp package.json dist/"
+  },
+  "author": {
+    "name": "Jose Navarro",
+    "email": "joosenavarro@gmail.com",
+    "twitter": "joosenunez",
+    "github": "joosenavarro"
+  },
+  "keywords": [
+    "npm",
+    "scripts",
+    "micro frontends",
+    "web component"
+  ],
+  "license": "MIT",
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"]
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "rxjs": "^6.5.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.3",
+    "@types/node": "^13.7.7",
+    "jest": "^25.1.0",
+    "ts-jest": "^25.2.1",
+    "typescript": "^3.8.3"
+  }
+}

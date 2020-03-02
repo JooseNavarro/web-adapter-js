@@ -1,0 +1,24 @@
+# compiled output
+/dist
+/tmp
+
+# dependencies
+/node_modules
+
+
+# IDEs and editors
+/.idea
+/.vscode
+.npmrc
+
+
+#System Files
+.DS_Store
+
+# lock
+yarn.lock
+package-lock.json
+
+*.log
+
+
