@@ -1,5 +1,5 @@
 # Web Adapter
-Web Adapter es un paquete que te permite tener una comunicación dinámica con tus Web Componets externos, ademas podrás cargar tus estilos de forma dinámica.
+Web Adapter es un paquete que te permite tener una comunicación dinámica con tus Web Componets externos, además podrás cargar tus estilos de forma dinámica.
 
   - Facil de utilizar.
   - Carga async de tus componentes.
@@ -27,6 +27,8 @@ export class AppModule {
 ```
 ### Agregar un Web Component
 ```
+import { ComponentAdapter,  UiAdapter } from 'web-adapter-js';
+
 @Component({
   selector: 'app-component',
   template: `<my-component></my-component>`,
