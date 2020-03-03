@@ -27,6 +27,8 @@ export class AppModule {
 ```
 ### Agregar un Web Component
 ```
+import { ComponentAdapter,  UiAdapter } from 'web-adapter-js';
+
 @Component({
   selector: 'app-component',
   template: `<my-component></my-component>`,

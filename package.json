@@ -1,6 +1,6 @@
 {
   "name": "web-adapter-js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Web Adapter es un paquete que te permite tener una comunicación dinámica con tus Web Componets externos, ademas podrás cargar tus estilos de forma dinámica.",
   "main": "index.js",
   "scripts": {
