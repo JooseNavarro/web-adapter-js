@@ -1,5 +1,6 @@
 import { StatusElement } from '../../interfaces';
 import { CreateElement } from "../../interfaces";
+import { SCRIPT_ELEMENT } from "../../constants";
 
 export class CreateScript implements CreateElement {
 

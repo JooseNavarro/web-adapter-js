@@ -22,6 +22,18 @@ export class UiAdapter {
         })
     }
 
+    public createLink(name: string, src: string): void {
+        const style = new CreateStyle();
+        style.createLink(name, src).then( ( status : StatusElement) => {
+            this.statusStyles.next(status);
+            this.allStyles.push(({name: status.name, element: status.element}));
+        }).catch((e)=> this.statusStyles.next(e))
+    }
+
+    public loadCdn(styles: Array<ElementDescription> = []) {
+        styles.forEach(({ name, src }) => this.createLink(name, src));
+    }
+
     public loadStyles(styles: Array<ElementDescription> = []) {
         styles.forEach(({ name, src }) => this.create(name, src));
     }
