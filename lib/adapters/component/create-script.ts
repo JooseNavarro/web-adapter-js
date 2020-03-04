@@ -4,7 +4,7 @@ import { CreateElement } from "../../interfaces";
 export class CreateScript implements CreateElement {
 
   public build( name: string, src: string, options?: HTMLScriptElement): Promise<StatusElement> {
-      const element = document.createElement('script');
+      const element = document.createElement(SCRIPT_ELEMENT);
       element.type = 'text/javascript';
       element.src = src;
       element.async = true;

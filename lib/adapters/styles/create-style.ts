@@ -1,17 +1,17 @@
 import { AdapterServices } from "../../services/adapter.services";
-import { StatusElement } from "../../index";
-import {AxiosResponse} from "axios";
+import { StatusElement } from "../../";
+import { AxiosResponse } from "axios";
 
 export class CreateStyle {
 
     public build(name: string, code: string): Promise<StatusElement> {
-        const element = document.createElement('style');
-        element.textContent = ` :host { ${ code } }`;
+        const element = document.createElement(STYLE_ELEMENT);
+        element.textContent = code;
         this.appendChild(element);
 
         return new Promise<StatusElement>((resolve, reject) => {
-            element.onload = ((e) => resolve({ name, status: true, element: element } ));
-            element.onerror = ((e) => {
+            element.onload = (() => resolve({ name, status: true, element: element } ));
+            element.onerror = (() => {
                 reject({ name, status: false, element: element } );
                 element.remove();
             } );
@@ -19,7 +19,7 @@ export class CreateStyle {
     }
 
     public appendChild(style: HTMLStyleElement): void {
-        const documentHead = document.body;
+        const documentHead = document.head;
         documentHead.appendChild(style);
     }
 
