@@ -9,7 +9,10 @@ export class CreateScript implements CreateElement {
       element.type = 'text/javascript';
       element.src = src;
       element.async = true;
-      this.appendChild(element);
+      element.id = `waj-${name}`;
+      if(!document.getElementById(`waj-${name}`)) {
+          this.appendChild(element);
+      }
       return new Promise((resolve, reject) => {
         element.onload = ((e) => resolve({ name, element, status: true  } ));
         element.onerror = ((e) => {

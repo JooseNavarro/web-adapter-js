@@ -16,7 +16,7 @@ export class ComponentAdapter {
     }
 
     public allRemoveComponent(): void {
-        this.allComponent.forEach(( { element } : BasicElement)=> element.remove());
+        this.allComponent.forEach(( { element } : BasicElement)=>  element.remove());
     }
 
     public removeOneComponent(name: string): void {

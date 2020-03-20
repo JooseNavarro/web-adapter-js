@@ -11,7 +11,10 @@ export class Adapter {
 
   private initialAngular( name: string ): void {
     const scriptElement = new ComponentAdapter();
-    scriptElement.createScript( name, AngularConfig.zone);
+    scriptElement.loadComponents([
+      { name: 'zonaJs', src: AngularConfig.zone },
+      { name: 'customElement', src: AngularConfig.customElement },
+    ]);
   }
 
 }
