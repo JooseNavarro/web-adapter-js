@@ -1,10 +1,10 @@
-# Web Adapter
+![Trailer](https://raw.githubusercontent.com/JooseNavarro/web-adapter-js/master/web-adapter.png)
+
 Web Adapter es un paquete que te permite tener una comunicación dinámica con tus Web Componets externos, además podrás cargar tus estilos de forma dinámica.
 
   - Facil de utilizar.
-  - Carga async de tus componentes.
+  - Carga tus componentes.
   - Puedes Listar y eliminar tus web component.
-
 
 ### Instalación
 
@@ -12,6 +12,7 @@ Web Adapter es un paquete que te permite tener una comunicación dinámica con t
 $ cd myApp
 $ npm install web-adapter-js
 ```
+
 # 
 En tu modulo principal agrega esta configuración.
 ```
@@ -48,6 +49,9 @@ export class AppComponent implements OnInit {
 }
 
 ```
+
+### Micro Frontend
+Aplicación de ejemplo [Netflapp](https://github.com/JooseNavarro/netflapp)
 
 
 License
