@@ -1,32 +1,36 @@
-import {ELEMENT_ID_CONTAINER} from "../constants";
-import {AngularConfig, Framework} from "../enum";
-import {ComponentAdapter} from "./component/component.adapter";
+import { ELEMENT_ID_CONTAINER } from "../constants";
+import { AngularConfig } from "../enum";
+import {LoadScripts} from "./web-component/load-script";
 
 export class Adapter {
 
   constructor() {
-    this.buildElementAdapter();
+    this.buildWorkSpace();
   }
 
-  private buildElementAdapter(): void {
+  get config(): any {
+    return {
+      angular: this.initialAngular(),
+      react: () => { }
+    };
+  }
 
-    const { createElement, body } = document;
-    const el = createElement('div');
+  private buildWorkSpace(): void {
+
+    const dc: Document = document;
+    const el = dc.createElement('div');
     el.id = ELEMENT_ID_CONTAINER;
-    body.appendChild(el);
+    dc.body.appendChild(el);
   }
 
   public init( frameworks: Array<string> = [] ): void {
-    frameworks.forEach( (data: string) => {
-      if (data === Framework.angular) this.initialAngular('initAngular');
-    });
+    frameworks.forEach( (name: string) => this.config[name]);
   }
 
+  private initialAngular( ): void {
 
-  private initialAngular( name: string ): void {
-
-    const scriptElement = new ComponentAdapter();
-    scriptElement.loadComponents([
+    const scriptElement = new LoadScripts();
+    scriptElement.import([
       { name: 'zonaJs', src: AngularConfig.zone },
       { name: 'customElement', src: AngularConfig.customElement },
     ]);

@@ -5,7 +5,6 @@ import {BehaviorSubject, Observable} from "rxjs";
 
 export class LoadScripts {
 
-
     public allScripts: Array<BasicElement> = [];
     private statusScripts: BehaviorSubject<any> = new BehaviorSubject(null);
 
@@ -31,10 +30,6 @@ export class LoadScripts {
     public removeOneScript(name: string): void {
         this.allScripts.filter( (component: BasicElement, index: number) =>  component.name === name)
             .forEach( ( { element } : BasicElement)=>  element.remove());
-    }
-
-    public render(): void {
-
     }
 
 }

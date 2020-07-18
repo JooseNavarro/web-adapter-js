@@ -7,6 +7,7 @@ export interface StatusElement {
 export interface ElementDescription {
   name: string;
   src: string;
+  type?: string;
 }
 
 export interface BasicElement {

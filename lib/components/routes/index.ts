@@ -13,9 +13,7 @@ export class RoutesAdapter {
     }
 
     private initRoutes(): void {
-        const { addEventListener } = document;
-        addEventListener(ROUTES_EVENT, (e: Event) =>
-            this.statusRoutes.next(e));
+        document.addEventListener(ROUTES_EVENT, (e: Event) => this.statusRoutes.next(e) );
     }
 
     public on(): Observable<RoutesInterface> {

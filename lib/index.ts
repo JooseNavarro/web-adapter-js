@@ -1,6 +1,9 @@
-export * from "./interfaces/global-element";
-export * from "./adapters/styles/ui.adapter";
-export * from "./adapters/component/component.adapter";
-export * from "./adapters/routes/routes.adapter";
-export * from "./adapters/adapter";
+// Interfaces
 export * from "./interfaces/";
+
+// Adapter
+export * from "./components/adapter";
+export * from "./components/routes";
+export * from "./components/redux";
+export * from "./components/web-component/web-component";
+export * from "./components/web-component/load-script";

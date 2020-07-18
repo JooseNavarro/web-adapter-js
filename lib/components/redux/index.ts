@@ -13,39 +13,38 @@ class Store {
         this.initListener();
     }
 
+    private get getState() {
+        return this.store.asObservable().pipe(
+            filter((e: CustomEvent) => !isNullOrUndefined(e)),
+            map(({detail}: CustomEvent) => detail)
+        );
+    }
+
     private initListener() {
         document.addEventListener(this.conf.listen,(e: Event) =>
             this.store.next( e ));
     }
 
-    get getState() {
-        return this.store.asObservable().pipe(
-            filter((e: CustomEvent) => !isNullOrUndefined(e)),
-            map(({detail}: CustomEvent) => detail),
-        );
-    }
-
-    dispatch( state: any ): void {
+    public dispatch( state: any ): void {
         const data = { stateApp: state };
         const event = new CustomEvent(this.conf.destination, { detail: data });
         document.dispatchEvent(event);
     }
 
-    on(): Observable<{ stateApp: any }> {
+    public on(): Observable<{ stateApp: any }> {
         return this.getState;
     }
 
-    onPromise(): Promise<any> {
+    public onPromise(): Promise<any> {
         return new Promise<any>( ((resolve, reject) => {
-            this.getState.subscribe( ()=> resolve(), err => reject(err) )
+           this.getState.subscribe( ()=> resolve(), err => reject(err) )
         }))
     }
 }
 
-const Global = {
+
+export const StoreAdapter = {
     root: new Store({ listen: STORE_ROOT, destination: STORE_GLOBAL }),
     child: new Store({ listen: STORE_GLOBAL, destination: STORE_ROOT }),
 };
-
-export default Global;
 
