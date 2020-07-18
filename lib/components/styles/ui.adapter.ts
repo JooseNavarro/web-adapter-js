@@ -1,7 +1,7 @@
 import { BehaviorSubject, Observable } from "rxjs";
 import { AxiosResponse } from "axios";
-import { BasicElement, ElementDescription, StatusElement } from "../../interfaces";
-import { CreateStyle } from "./create-style";
+import {BasicElement, ElementDescription, StatusElement} from "../../interfaces";
+import {CreateStyle} from "./create-style";
 
 export class UiAdapter {
 

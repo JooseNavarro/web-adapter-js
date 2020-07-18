@@ -1,7 +1,7 @@
-import { AdapterServices } from "../../services/adapter.services";
-import { StatusElement } from "../../";
 import { AxiosResponse } from "axios";
-import { LINK_ELEMENT, STYLE_ELEMENT} from "../../constants";
+import {StatusElement} from "../../interfaces";
+import {LINK_ELEMENT, STYLE_ELEMENT} from "../../constants";
+import {AdapterServices} from "../../services/adapter.services";
 
 export class CreateStyle {
 
