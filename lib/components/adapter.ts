@@ -1,14 +1,16 @@
 import { ELEMENT_ID_CONTAINER } from "../constants";
 import { AngularConfig } from "../enum";
-import {LoadScripts} from "./web-component/load-script";
+import { LoadScripts } from "./web-component/load-script";
+import { atWindow } from "../utils/dom";
 
 export class Adapter {
 
   constructor() {
     this.buildWorkSpace();
+    this.buildWindow();
   }
 
-  get config(): any {
+  private config(): any {
     return {
       angular: this.initialAngular(),
       react: () => { }
@@ -23,8 +25,12 @@ export class Adapter {
     dc.body.appendChild(el);
   }
 
+  private buildWindow() {
+    atWindow()['webAdapter'] = { webComponents: [], props: { }};
+  }
+
   public init( frameworks: Array<string> = [] ): void {
-    frameworks.forEach( (name: string) => this.config[name]);
+    frameworks.forEach( (name: string) => this.config()[name]);
   }
 
   private initialAngular( ): void {

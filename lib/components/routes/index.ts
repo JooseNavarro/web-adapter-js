@@ -3,17 +3,19 @@ import { filter, map } from "rxjs/operators";
 import { ROUTES_EVENT } from "../../constants";
 import { RoutesInterface } from "./interface";
 import { isNullOrUndefined } from "../../utils";
+import { atDocument } from "../../utils/dom";
 
-export class RoutesAdapter {
+export class Routes {
 
     private statusRoutes: BehaviorSubject<any> = new BehaviorSubject(null);
 
     constructor() {
-        this.initRoutes();
+        this.main();
     }
 
-    private initRoutes(): void {
-        document.addEventListener(ROUTES_EVENT, (e: Event) => this.statusRoutes.next(e) );
+    private main(): void {
+        atDocument().addEventListener(ROUTES_EVENT, (e: Event) =>
+            this.statusRoutes.next(e) );
     }
 
     public on(): Observable<RoutesInterface> {
@@ -33,9 +35,6 @@ export class RoutesAdapter {
     public emit(route: string, option: any): void {
         const data = { route, option };
         const event = new CustomEvent(ROUTES_EVENT, { detail: data });
-        document.dispatchEvent(event);
+        atDocument().dispatchEvent(event);
     }
-
 }
-
-

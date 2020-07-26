@@ -1,0 +1,275 @@
+{
+  "results": [
+    {
+      "gender": "male",
+      "name": {
+        "title": "Mr",
+        "first": "Leo",
+        "last": "Hall"
+      },
+      "location": {
+        "street": {
+          "number": 3700,
+          "name": "Mornington Road"
+        },
+        "city": "Taupo",
+        "state": "Southland",
+        "country": "New Zealand",
+        "postcode": 61720,
+        "coordinates": {
+          "latitude": "65.4793",
+          "longitude": "-104.9936"
+        },
+        "timezone": {
+          "offset": "+5:00",
+          "description": "Ekaterinburg, Islamabad, Karachi, Tashkent"
+        }
+      },
+      "email": "leo.hall@example.com",
+      "login": {
+        "uuid": "93a58ba9-cb34-41a1-8523-4052d99b9a91",
+        "username": "blackduck365",
+        "password": "enters",
+        "salt": "URnqePfs",
+        "md5": "b86b13d3178802a8060c5737fde4db7e",
+        "sha1": "016a0a44c410cbb6a41bc6271f4d7977e7e0f069",
+        "sha256": "e40abaf9ac6f91fde03ec91dfee7ea36192a230da9b45bc555f51a4a712eddef"
+      },
+      "dob": {
+        "date": "1946-02-09T20:31:12.344Z",
+        "age": 74
+      },
+      "registered": {
+        "date": "2008-08-04T01:45:53.958Z",
+        "age": 12
+      },
+      "phone": "(856)-756-5011",
+      "cell": "(276)-487-1357",
+      "id": "1",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/13.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/13.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/13.jpg"
+      },
+      "nat": "NZ"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "Mr",
+        "first": "Hanni",
+        "last": "Hübsch"
+      },
+      "location": {
+        "street": {
+          "number": 2732,
+          "name": "Schlossstraße"
+        },
+        "city": "Havelberg",
+        "state": "Hamburg",
+        "country": "Germany",
+        "postcode": 88319,
+        "coordinates": {
+          "latitude": "-63.0341",
+          "longitude": "-130.5725"
+        },
+        "timezone": {
+          "offset": "+3:00",
+          "description": "Baghdad, Riyadh, Moscow, St. Petersburg"
+        }
+      },
+      "email": "hanni.hubsch@example.com",
+      "login": {
+        "uuid": "3ca6cc34-8c37-4568-8d55-d60df7f4cf91",
+        "username": "organicbutterfly429",
+        "password": "vipers",
+        "salt": "zb29E0tU",
+        "md5": "72bdbc7568f427520d018c23ba4062d3",
+        "sha1": "148b700919b8da00b106e0512680d38af0254dbd",
+        "sha256": "4ba7dad15cac0bd24df2d3e5f988111454f768d61614753ff4a4b33c1a0fee2e"
+      },
+      "dob": {
+        "date": "1945-07-27T06:28:21.067Z",
+        "age": 75
+      },
+      "registered": {
+        "date": "2011-11-29T15:23:34.907Z",
+        "age": 9
+      },
+      "phone": "0798-4352915",
+      "cell": "0177-2358344",
+      "id": "2",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/72.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/72.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/72.jpg"
+      },
+      "nat": "DE"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "Mr",
+        "first": "Victor",
+        "last": "Lam"
+      },
+      "location": {
+        "street": {
+          "number": 1486,
+          "name": "Elgin St"
+        },
+        "city": "Carleton",
+        "state": "Newfoundland and Labrador",
+        "country": "Canada",
+        "postcode": "A4R 2F6",
+        "coordinates": {
+          "latitude": "-24.1747",
+          "longitude": "-173.8869"
+        },
+        "timezone": {
+          "offset": "+3:00",
+          "description": "Baghdad, Riyadh, Moscow, St. Petersburg"
+        }
+      },
+      "email": "victor.lam@example.com",
+      "login": {
+        "uuid": "8bbfe659-3f28-4c45-8d67-627e78272501",
+        "username": "yellowgorilla562",
+        "password": "riddle",
+        "salt": "eDF5SBfK",
+        "md5": "5fe425929f9d81fda710cdfdd58c79bf",
+        "sha1": "e427c72d842063819690cde6bcd802deaf0a12d2",
+        "sha256": "51b5426d711227cd94dae7f7f4b186ec3db424f74877085bc8e532f5b58346cc"
+      },
+      "dob": {
+        "date": "1969-11-04T15:10:40.350Z",
+        "age": 51
+      },
+      "registered": {
+        "date": "2006-03-20T00:03:11.464Z",
+        "age": 14
+      },
+      "phone": "355-563-4338",
+      "cell": "487-535-4319",
+      "id": "3",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/83.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/83.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/83.jpg"
+      },
+      "nat": "CA"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "Mr",
+        "first": "Stefan",
+        "last": "Beller"
+      },
+      "location": {
+        "street": {
+          "number": 63,
+          "name": "Friedhofstraße"
+        },
+        "city": "Rüsselsheim am Main",
+        "state": "Nordrhein-Westfalen",
+        "country": "Germany",
+        "postcode": 42347,
+        "coordinates": {
+          "latitude": "-3.0731",
+          "longitude": "1.1843"
+        },
+        "timezone": {
+          "offset": "0:00",
+          "description": "Western Europe Time, London, Lisbon, Casablanca"
+        }
+      },
+      "email": "stefan.beller@example.com",
+      "login": {
+        "uuid": "eb719cf6-873d-4588-8b57-55e7eb859752",
+        "username": "goldenfish310",
+        "password": "duffer",
+        "salt": "A5o1zJmR",
+        "md5": "30a903459b22be8a6e9b4531ff649b97",
+        "sha1": "788cf6ffa0008de4bfea9425cbb17e0b554b7d76",
+        "sha256": "6fbce1e2efda1215b89c2828fc8b8da9d9f1f46eaee176f1e40691e456341fce"
+      },
+      "dob": {
+        "date": "1955-12-23T19:08:39.225Z",
+        "age": 65
+      },
+      "registered": {
+        "date": "2003-12-10T05:59:05.950Z",
+        "age": 17
+      },
+      "phone": "0809-8929901",
+      "cell": "0173-8862954",
+      "id": "4",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/11.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/11.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/11.jpg"
+      },
+      "nat": "DE"
+    },
+    {
+      "gender": "female",
+      "name": {
+        "title": "Mrs",
+        "first": "Leila",
+        "last": "Gelderblom"
+      },
+      "location": {
+        "street": {
+          "number": 4067,
+          "name": "De Realiteit"
+        },
+        "city": "Langedijk",
+        "state": "Overijssel",
+        "country": "Netherlands",
+        "postcode": 83516,
+        "coordinates": {
+          "latitude": "75.3736",
+          "longitude": "-177.3304"
+        },
+        "timezone": {
+          "offset": "-3:30",
+          "description": "Newfoundland"
+        }
+      },
+      "email": "leila.gelderblom@example.com",
+      "login": {
+        "uuid": "7a33a37e-0705-4c95-ae3d-693b5543311e",
+        "username": "silverostrich800",
+        "password": "courtney",
+        "salt": "jHQQsiNQ",
+        "md5": "6cc66e0b55708940ef0b9855c162e0c8",
+        "sha1": "c04e90c95891b8a6fede0a10358c60cc701ce1d1",
+        "sha256": "ea9393628250af3ca5407167ec95792508e1cece44d69acc4b6356567f28beec"
+      },
+      "dob": {
+        "date": "1985-01-18T16:49:44.609Z",
+        "age": 35
+      },
+      "registered": {
+        "date": "2019-07-01T18:30:40.743Z",
+        "age": 1
+      },
+      "phone": "(825)-213-7070",
+      "cell": "(828)-064-3244",
+      "id": "5",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/55.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/55.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/55.jpg"
+      },
+      "nat": "NL"
+    }
+  ],
+  "info": {
+    "seed": "54baa4e04af67863",
+    "results": 5,
+    "page": 1,
+    "version": "1.3"
+  }
+}

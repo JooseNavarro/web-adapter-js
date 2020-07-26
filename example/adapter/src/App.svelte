@@ -1,29 +1,49 @@
 <svelte:options tag="micro-profile" />
 
 <script>
-	import { RoutesAdapter, StoreAdapter } from '../../../dist/index.js';
-	const router = new RoutesAdapter();
-	const store = StoreAdapter.child;
-	store.on().subscribe( a => console.log('1 svelte: ', a) );
+	import { afterUpdate } from 'svelte';
+	import './components/Hello.svelte';
+	import { Props, Routes, StoreAdapter } from "../../../dist/index.js";
 
-	const handleClick = () => {
-		// router.emit('profile', { });
-		store.dispatch({ name: '2, svelte' });
-	};
+	export let key;
+	const router = new Routes();
+	const props = new Props();
+	const store = StoreAdapter.child;
+	let count = 0;
+	let user = null;
+
+	const serializer = ( stateApp ) => stateApp.filter( ( { id } ) => id === key );
+
+	afterUpdate(() => user = props.find(`micro-profile-${key}`));
+
+	store.on().subscribe( ( { stateApp } ) => {
+		const [ item ] = serializer(stateApp);
+		// user = item;
+	});
+
+	const handleClick = () => store.dispatch(user);
+
+	const handleRoute = () => {}
 </script>
 
 <main>
-
-	<div class="card" style="width: 18rem;">
-		<div class="card-body">
-			<h5 class="card-title">Special title treatment</h5>
-			<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-			<button on:click={handleClick} class="btn btn-primary">Go somewhere</button>
-		</div>
+	<div class="card" on:click={handleClick}>
+		{#if !!user }
+			<img src={ user.picture.large } alt="">
+			<h2>{ user.name.first  } { user.name.last }</h2>
+			<p><strong>Cell: </strong> { user.cell  } </p>
+		{/if}
 	</div>
 </main>
 
 <style>
-	@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css';
-
+	.card {
+		margin: 15px;
+		cursor: pointer;
+		text-align: center;
+		font-family: sans-serif;
+		font-weight: 500;
+	}
+	.card h2 { font-size: 25px; }
+	img { border-radius: 50%; }
 </style>

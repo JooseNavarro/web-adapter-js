@@ -1,12 +1,20 @@
 import { AxiosResponse } from "axios";
-import {StatusElement} from "../../interfaces";
-import {LINK_ELEMENT, STYLE_ELEMENT} from "../../constants";
-import {AdapterServices} from "../../services/adapter.services";
+import { LINK_ELEMENT, STYLE_ELEMENT } from "../../constants";
+import { CreateStyles } from "./interface";
+import { StatusElement } from "../../interfaces/global-element";
+import AdapterServices from "../../services/adapter.services";
+import { atDocument } from "../../utils/dom";
 
-export class CreateStyle {
+
+export class CreateStyle implements CreateStyles {
+
+    private appendChild(style: HTMLStyleElement | HTMLLinkElement): void {
+        const documentHead = atDocument().head;
+        documentHead.appendChild(style);
+    }
 
     public build(name: string, code: string): Promise<StatusElement> {
-        const element: HTMLStyleElement = document.createElement( STYLE_ELEMENT );
+        const element: HTMLStyleElement = atDocument().createElement( STYLE_ELEMENT );
         element.textContent = code;
 
         this.appendChild(element);
@@ -20,7 +28,7 @@ export class CreateStyle {
     }
 
     public createLink(name: string, href: string): Promise<StatusElement> {
-        const element: HTMLLinkElement = document.createElement( LINK_ELEMENT );
+        const element: HTMLLinkElement = atDocument().createElement( LINK_ELEMENT );
         element.href = href;
         element.type = "text/css";
         element.rel = "stylesheet";
@@ -35,15 +43,9 @@ export class CreateStyle {
         });
     }
 
-    private appendChild(style: HTMLStyleElement | HTMLLinkElement): void {
-        const documentHead = document.head;
-        documentHead.appendChild(style);
-    }
-
     public async sourceServices(src: string): Promise<AxiosResponse> {
         const adapterServices = new AdapterServices();
         return await adapterServices.textContent(src);
     }
-
-
 }
+

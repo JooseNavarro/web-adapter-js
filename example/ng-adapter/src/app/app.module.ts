@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import {RouterModule} from '@angular/router';
-import { Adapter, LoadScripts } from '../../../../lib';
+import { Store } from './models/store';
+import { Adapter, LoadScripts } from '../../../../dist';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,7 @@ import { Adapter, LoadScripts } from '../../../../lib';
     RouterModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [Store],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })

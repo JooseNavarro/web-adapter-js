@@ -3,7 +3,6 @@ export function isNullOrUndefined(property: any): boolean {
     return values.includes(property);
 }
 
-
 export function isEmptyArray(property: Array<any>): boolean {
     return !property.length;
 }
