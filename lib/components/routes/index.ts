@@ -3,7 +3,7 @@ import { filter, map } from "rxjs/operators";
 import { ROUTES_EVENT } from "../../constants";
 import { RoutesInterface } from "./interface";
 import { isNullOrUndefined } from "../../utils";
-import { atDocument } from "../../utils/dom";
+import { atDocument, atWindow } from "../../utils/dom";
 
 export class Routes {
 
@@ -25,15 +25,14 @@ export class Routes {
         );
     }
 
-    public onPromise(): Promise<RoutesInterface> {
-        return new Promise( (reject, resolve) => {
-            this.on().subscribe(
-                (res: RoutesInterface) => resolve(res), (error) => reject(error) );
-        });
+    public onChanges(fun: (eElement: any) => any) {
+        this.on()
+            .subscribe( (res: RoutesInterface) => fun(res));
     }
 
-    public emit(route: string, option: any): void {
+    public emit(route: string, option?: any): void {
         const data = { route, option };
+        const { CustomEvent } = atWindow();
         const event = new CustomEvent(ROUTES_EVENT, { detail: data });
         atDocument().dispatchEvent(event);
     }

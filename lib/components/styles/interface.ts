@@ -1,5 +1,4 @@
 import { Observable } from "rxjs";
-import { AxiosResponse } from "axios";
 import { BasicElement, ElementDescription, StatusElement } from "../../interfaces/global-element";
 
 export interface Styles {
@@ -14,5 +13,5 @@ export interface Styles {
 export interface CreateStyles {
     build(name: string, code: string): Promise<StatusElement>;
     createLink(name: string, href: string): Promise<StatusElement>;
-    sourceServices(src: string): Promise<AxiosResponse>;
+    sourceServices(src: string): Promise<any>;
 }

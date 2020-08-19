@@ -1,7 +1,7 @@
 import { BehaviorSubject, Observable } from "rxjs";
 import { LoadScript } from "./interface";
 import { BasicElement, ElementDescription, StatusElement } from "../../interfaces/global-element";
-import { CreateScript } from "./create-script";
+import { CreateScriptHelper } from "../../helpers/create-script.helper";
 
 export class LoadScripts implements LoadScript {
 
@@ -9,7 +9,7 @@ export class LoadScripts implements LoadScript {
     private statusScripts: BehaviorSubject<any> = new BehaviorSubject(null);
 
     private buildScript(element: ElementDescription) {
-        const script = new CreateScript();
+        const script = new CreateScriptHelper();
         script.build(element).then((data: StatusElement) => {
             this.allScripts.push({ name: data.name, element: data.element });
         }).catch( e => this.statusScripts.next(e));

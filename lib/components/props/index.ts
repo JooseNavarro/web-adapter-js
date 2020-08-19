@@ -15,7 +15,15 @@ export class Props implements PropsInterface {
         );
     }
 
+    // @ts-ignore
+    public onChanges(fun: (eElement: any) => any ): () => any {
+        this.windowAdapter.getProperty().pipe(
+            map(({ props }: WindowInterface) => fun(props[name]))
+        );
+    }
+
     public find(property: string): { [key: string]: any } {
+        this.onChanges((a)=> console.log(a));
         const { webAdapter } = atWindow();
         return !isNullOrUndefined(webAdapter) ? webAdapter['props'][property] : { };
     }

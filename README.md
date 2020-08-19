@@ -5,6 +5,9 @@ Web Adapter es un paquete que te permite tener una comunicación dinámica con t
   - Facil de utilizar.
   - Carga tus componentes.
   - Puedes Listar y eliminar tus web component.
+  - Custom event
+
+### [Documentación](https://joosenavarro.gitbook.io/adapterjs/)
 
 ### Instalación
 
@@ -49,6 +52,22 @@ export class AppComponent implements OnInit {
 }
 
 ```
+
+### Custom Event
+```
+import { EventHandler } from 'web-adapter-js';
+
+const event = EventHandler.custom('[MY_CUSTOM_EVENT]');
+
+// Dispatch
+event.dispatch({ example: { ...payload } }, '[KEY]')
+
+// Listen
+const event =  EventHandler.custom('[MY_CUSTOM_EVENT]');
+event.onChanges((payload)=> console.log(payload), '[KEY]');
+
+```
+
 
 ### Micro Frontend
 Aplicación de ejemplo [Netflapp](https://github.com/JooseNavarro/netflapp)

@@ -10,8 +10,10 @@
         "jsx",
         "json"
     ],
+    "verbose": true,
     "testPathIgnorePatterns" : [
         "<rootDir>/example/",
         "<rootDir>/dist/"
-    ]
+    ],
+    "testEnvironment": "node"
 }

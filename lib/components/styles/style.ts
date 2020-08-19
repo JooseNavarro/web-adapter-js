@@ -1,8 +1,7 @@
 import { BehaviorSubject, Observable } from "rxjs";
-import { AxiosResponse } from "axios";
 import { Styles } from "./interface";
 import { BasicElement, ElementDescription, StatusElement } from "../../interfaces/global-element";
-import { CreateStyle } from "./create-style";
+import { CreateStyleHelper } from "../../helpers/create-style.helper";
 
 export class Style implements Styles {
 
@@ -14,7 +13,7 @@ export class Style implements Styles {
     }
 
     private createLink(name: string, src: string): void {
-        const style = new CreateStyle();
+        const style = new CreateStyleHelper();
         style.createLink(name, src).then( ( status : StatusElement) => {
             this.statusStyles.next(status);
             this.allStyles.push(({name: status.name, element: status.element}));
@@ -22,8 +21,8 @@ export class Style implements Styles {
     }
 
     private createSource(name: string, src: string): void {
-        const style = new CreateStyle();
-        style.sourceServices(src).then( ( res : AxiosResponse) => {
+        const style = new CreateStyleHelper();
+        style.sourceServices(src).then( ( res : any) => {
             style.build( name, res.data ).then((status: StatusElement) => {
                 this.statusStyles.next(status);
                 this.allStyles.push({name: status.name, element: status.element});

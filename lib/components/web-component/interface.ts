@@ -9,14 +9,14 @@ export interface LoadScript {
     removeOneScript(name: string): void;
 }
 
-export interface WebComponents {
+export interface DynamicComponents {
     getContainerElement(): HTMLElement | any;
-    render( selector: string, props: Props): void;
+    render( selector: string, props: Attributes): void;
     fragmentRender( selector: string ): void;
     input(selector: string, props: Array<{ name: string, value: any }>): void;
     createWorkSpace(id: string): void
 }
 
-export interface Props {
+export interface Attributes {
     [ key: string ]: any
 }
