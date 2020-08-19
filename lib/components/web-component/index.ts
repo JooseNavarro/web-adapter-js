@@ -1,7 +1,7 @@
 import { CONTAINER_WA } from "../../constants";
 import { Props, WebComponents } from "./interface";
 import { WindowAdapter } from "../../utils/window";
-import {atDocument} from "../../utils/dom";
+import { atDocument } from "../../utils/dom";
 
 export class WebComponent implements WebComponents {
 

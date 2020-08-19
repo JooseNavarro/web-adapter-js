@@ -1,7 +1,7 @@
 import { ELEMENT_ID_CONTAINER } from "../constants";
 import { AngularConfig } from "../enum";
 import { LoadScripts } from "./web-component/load-script";
-import { atWindow } from "../utils/dom";
+import { atWindow, atDocument } from "../utils/dom";
 
 export class Adapter {
 
@@ -19,7 +19,7 @@ export class Adapter {
 
   private buildWorkSpace(): void {
 
-    const dc: Document = document;
+    const dc: Document = atDocument();
     const el = dc.createElement('div');
     el.id = ELEMENT_ID_CONTAINER;
     dc.body.appendChild(el);

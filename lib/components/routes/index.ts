@@ -32,7 +32,7 @@ export class Routes {
         });
     }
 
-    public emit(route: string, option: any): void {
+    public emit(route: string, option?: any): void {
         const data = { route, option };
         const event = new CustomEvent(ROUTES_EVENT, { detail: data });
         atDocument().dispatchEvent(event);

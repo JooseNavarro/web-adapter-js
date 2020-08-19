@@ -2,7 +2,7 @@ import { ELEMENT_ID_CONTAINER, SCRIPT_ELEMENT } from "../../constants";
 import { isNullOrUndefined } from "../../utils";
 import { CreateElement } from "../../interfaces/element";
 import { ElementDescription, StatusElement } from "../../interfaces/global-element";
-import {atDocument} from "../../utils/dom";
+import { atDocument, atWindow } from "../../utils/dom";
 
 export class CreateScript implements CreateElement {
 
@@ -19,8 +19,9 @@ export class CreateScript implements CreateElement {
         if (currentElement) this.appendChild(scriptElement);
 
         return new Promise((resolve, reject) => {
-            scriptElement.onload = ((e) => resolve({ name, element: scriptElement, status: true }));
-            scriptElement.onerror = ((e) => {
+            atWindow().addEventListener('load', () =>
+                resolve({ name, element: scriptElement, status: true }));
+            atWindow().addEventListener('error', () => {
                 reject({ name, element: scriptElement, status: false });
                 scriptElement.remove();
             });
