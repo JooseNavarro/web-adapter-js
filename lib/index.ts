@@ -1,6 +1,6 @@
-export * from "./interfaces/global-element";
-export * from "./adapters/styles/ui.adapter";
-export * from "./adapters/component/component.adapter";
-export * from "./adapters/routes/routes.adapter";
-export * from "./adapters/adapter";
-export * from "./interfaces/";
+export { EventHandler } from './components/event-handler';
+export { DynamicComponent } from './components/web-component/dynamic-component';
+export { Props } from './components/props';
+export { Routes } from './components/routes';
+export { LoadScripts } from './components/web-component/load-script';
+export { Style } from './components/styles/style';

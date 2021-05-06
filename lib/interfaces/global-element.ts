@@ -7,6 +7,8 @@ export interface StatusElement {
 export interface ElementDescription {
   name: string;
   src: string;
+  type?: string;
+  registre?: Array<string>
 }
 
 export interface BasicElement {
