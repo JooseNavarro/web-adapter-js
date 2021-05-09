@@ -15,5 +15,5 @@
         "<rootDir>/example/",
         "<rootDir>/dist/"
     ],
-    "testEnvironment": "node"
+    "testEnvironment": "jsdom"
 }

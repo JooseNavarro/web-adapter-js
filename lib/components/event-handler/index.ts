@@ -1,31 +1,21 @@
-import { BehaviorSubject, Observable } from "rxjs";
 import { EVENT_HANDLER_CHILD, EVENT_HANDLER_ROOT } from "../../constants";
-import { filter, map } from "rxjs/operators";
-import { isNullOrUndefined } from "../../utils";
-import { StateApp, EventHandlerInterface } from "./interfece";
+import { EventHandlerInterface } from "./interfece";
 import { atDocument, atWindow } from "../../utils/dom";
 
 
 class EventHandlerAdapter implements EventHandlerInterface {
 
-    private store: BehaviorSubject<any> = new BehaviorSubject(null);
     public conf = {  listen: '', destination: ''  };
+    private behaviorSubject: any;
 
     constructor( location: any ) {
         this.conf = location;
         this.main();
     }
 
-    private state(): Observable<{ stateApp: any, action: any }> {
-        return this.store.asObservable().pipe(
-            filter((e: CustomEvent) => !isNullOrUndefined(e)),
-            map(({ detail }: CustomEvent) => detail)
-        );
-    }
-
     private main(): void {
-        atDocument().addEventListener(
-            this.conf.listen,(e: Event) => this.store.next( e ));
+        atDocument().addEventListener(this.conf.listen,
+            ({ detail }: Event | any) => this.behaviorSubject = (fn: any)=> fn(detail));
     }
 
     public dispatch( state: any, action = '' ): void {
@@ -35,18 +25,10 @@ class EventHandlerAdapter implements EventHandlerInterface {
         atDocument().dispatchEvent(event);
     }
 
-    public on(currentAction: string = ''): Observable<StateApp> {
-        return this.state().pipe(
-            filter(({ action }) => !currentAction || currentAction === action ),
-            map(({ stateApp }) => ({ ...stateApp })),
-        );
-    }
-
     // @ts-ignore
-    public onChanges(fun: (eElement: any) => any, currentAction = '') {
-        this.state()
-            .subscribe( ({ action, stateApp }) =>
-                !currentAction || currentAction === action ? fun({ ...stateApp }) : null)
+    public onChanges(fn: (eElement: any) => any, currentAction = '') {
+        this.behaviorSubject( ({ action, stateApp }: any) => 
+            !currentAction || currentAction === action ? fn({ ...stateApp }) : null);
     }
 
 }

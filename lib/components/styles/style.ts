@@ -1,4 +1,3 @@
-import { BehaviorSubject, Observable } from "rxjs";
 import { Styles } from "./interface";
 import { BasicElement, ElementDescription, StatusElement } from "../../interfaces/global-element";
 import { CreateStyleHelper } from "../../helpers/create-style.helper";
@@ -6,27 +5,20 @@ import { CreateStyleHelper } from "../../helpers/create-style.helper";
 export class Style implements Styles {
 
     public allStyles: Array<BasicElement> = [];
-    private statusStyles: BehaviorSubject<any> = new BehaviorSubject(null);
-
-    public getStatusStyles(): Observable<StatusElement> {
-        return this.statusStyles.asObservable();
-    }
 
     private createLink(name: string, src: string): void {
         const style = new CreateStyleHelper();
-        style.createLink(name, src).then( ( status : StatusElement) => {
-            this.statusStyles.next(status);
+        style.createLink(name, src, ( status: StatusElement) => {
             this.allStyles.push(({name: status.name, element: status.element}));
-        }).catch((e)=> this.statusStyles.next(e))
+        });
     }
 
     private createSource(name: string, src: string): void {
         const style = new CreateStyleHelper();
         style.sourceServices(src).then( ( res : any) => {
             style.build( name, res.data ).then((status: StatusElement) => {
-                this.statusStyles.next(status);
                 this.allStyles.push({name: status.name, element: status.element});
-            }).catch( e => this.statusStyles.next(e));
+            });
         })
     }
 
